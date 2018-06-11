@@ -60,6 +60,18 @@ public class URLBuilder {
         return this;
     }
     
+    public URLBuilder addParameters(Map<String, Object> parameters) {
+        if (this.parameters == null) {
+            this.parameters = parameters;
+        } else {
+            if(parameters != null && !parameters.isEmpty()) {
+                this.parameters.putAll(parameters);
+            }
+        }
+        
+        return this;
+    }
+    
     public String buildStringURL() {
         StringBuilder url = new StringBuilder("");
         
