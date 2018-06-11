@@ -40,6 +40,11 @@ public class URLBuilder {
         return this;
     }
     
+    public URLBuilder setPath(String path) {
+        this.path = path;
+        return this;
+    }
+    
     public URLBuilder setHash(String hash) {
         this.hash = hash.trim();
         return this;
