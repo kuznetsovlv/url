@@ -88,7 +88,7 @@ public class URLBuilder {
         }
         
         if (path != null && !path.isEmpty()) {
-            path = path.replaceAll("\\", "/").trim();
+            path = path.replaceAll("(.*)\\\\(.*)", "/").trim();
             
             if (!path.substring(0, 1).equals("/")) {
                 url.append("/");
@@ -107,6 +107,7 @@ public class URLBuilder {
                 if (!first) {
                     url.append("&");
                 }
+                first = false;
                 url.append(entry.getKey()).append("=").append(entry.getValue().toString());
             }
         }
